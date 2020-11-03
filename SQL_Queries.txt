@@ -13,3 +13,7 @@ mysql> create table addressBook
     ->       Email        varchar(50) NOT NULL,
     ->       PRIMARY KEY  (firstName)
     ->     );
+
+mysql> INSERT INTO addressBook(firstName,lastName,Address,City,State,Zip,Phone_No,Email) VALUES
+    -> ('Manmeet','Jha','Shalimar','New Delhi','Delhi',110088,8178897,'manmeetjh0306@gmail.com'),
+    -> ('Navneet','Jha','Shalimar','New Delhi','Delhi',110088,8700452,'navneetjh5@gmail.com');
