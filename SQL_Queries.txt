@@ -19,3 +19,5 @@ mysql> INSERT INTO addressBook(firstName,lastName,Address,City,State,Zip,Phone_N
     -> ('Navneet','Jha','Shalimar','New Delhi','Delhi',110088,8700452,'navneetjh5@gmail.com');
 
 mysql> UPDATE addressBook SET Phone_No=9810223 WHERE firstName='Manmeet';
+
+mysql> DELETE FROM addressBook WHERE firstName='Navneet';
