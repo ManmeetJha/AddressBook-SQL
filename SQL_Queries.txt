@@ -32,3 +32,34 @@ mysql> SELECT state,COUNT(state) FROM addressBook GROUP BY state;
 
 mysql> SELECT * FROM addressBook WHERE city='New Delhi' ORDER BY firstName;
 
+mysql> INSERT INTO addressBook(firstName,lastName,Address,City,State,Zip,Phone_No,Email) VALUES
+    -> ('Navneet','Jha','Shalimar','New Delhi','Delhi',110088,8700452,'navneetjh5@gmail.com'),
+    -> ('Manpreet','Kaur','ModelTown','New Delhi','Delhi',110055,8730452,'manmkaur@gmail.com'),
+    -> ('Avneesh','Singh','Town','New Delhi','Delhi',110055,8730452,'avnieehr@gmail.com');
+
+mysql> ALTER table addressBook add bookName varchar(30) AFTER Email;
+mysql> UPDATE addressBook set bookName='Book1' where firstName='Manmeet' or firstName='Navneet';
+mysql> ALTER table addressBook add type varchar(30) AFTER bookName;
+mysql> UPDATE addressBook set type='Family' where firstName='Manmeet';
+mysql> UPDATE addressBook set type='Family' where firstName='Navneet';
+mysql> UPDATE addressBook set type='Friend' where firstName='Avneesh';
+mysql> UPDATE addressBook set type='Profession' where firstName='Manpreet';
+
+mysql> SELECT type,COUNT(type) as noOfContacts FROM addressBook GROUP BY type;
+
+mysql> create table contactDetails
+    -> (
+    -> S_No INT UNSIGNED NOT NULL PRIMARY KEY,
+    -> firstName varchar(30) NOT NULL,
+    -> lastName varchar(30) NOT NULL,
+    -> Phone_No int(15) NOT NULL,
+    ->  Email varchar(50) NOT NULL);
+
+mysql>create table addressDetails(
+    -> S_No INT UNSIGNED NOT NULL PRIMARY KEY,
+    -> FOREIGN KEY (S_No) REFERENCES contactDetails (S_No),
+    -> Address varchar(100) NOT NULL,
+    -> City varchar(30) NOT NULL,
+    -> State varchar(30) NOT NULL,
+    -> Zip int(6) NOT NULL);
+
